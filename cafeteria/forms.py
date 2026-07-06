@@ -13,3 +13,8 @@ class CustomUserCreationForm(UserCreationForm):
 
 class OrderQuantityForm(forms.Form):
     quantity = forms.IntegerField(min_value=1, initial=1)
+    payment_method = forms.ChoiceField(
+        choices=[("Cash", "Cash"), ("Mpesa", "M-Pesa")],
+        widget=forms.RadioSelect,
+        initial="Cash",
+    )

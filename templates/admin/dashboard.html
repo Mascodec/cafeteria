@@ -1,0 +1,44 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<div class="dashboard">
+    <div class="features">
+        <div class="feature-box">
+            <h3>Total Orders</h3>
+            <p>{{ total_orders }}</p>
+        </div>
+        <div class="feature-box">
+            <h3>Pending Orders</h3>
+            <p>{{ pending_orders }}</p>
+        </div>
+        <div class="feature-box">
+            <h3>Total Revenue</h3>
+            <p>${{ total_revenue|floatformat:2 }}</p>
+        </div>
+    </div>
+
+    <h3>Recent Orders</h3>
+    <div class="menu-grid">
+        {% for order in recent_orders %}
+        <div class="card">
+            <strong>{{ order.user.username }}</strong>
+            <p>{{ order.item.name }} x {{ order.quantity }} — {{ order.status }}</p>
+            <p>{{ order.created_at }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h3>Recent M-Pesa Transactions</h3>
+    <div class="menu-grid">
+        {% for tx in recent_transactions %}
+        <div class="card">
+            <p>Phone: {{ tx.phone_number }}</p>
+            <p>Amount: ${{ tx.amount }}</p>
+            <p>Result: {{ tx.result_code }} - {{ tx.result_desc }}</p>
+            <p>Receipt: {{ tx.mpesa_receipt_number }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -7,8 +7,18 @@
     <div class="card order-card">
         <h3>{{ order.item.name }}</h3>
         <p>Quantity: {{ order.quantity }}</p>
+        <p>Amount: ${{ order.total|floatformat:2 }}</p>
+        <p>Payment: <strong>{{ order.payment_method }}</strong></p>
         <p>Status: <strong>{{ order.status }}</strong></p>
         <p>Ordered on: {{ order.created_at }}</p>
+        {% if order.status == 'Pending' and order.payment_method == 'Mpesa' %}
+        <form class="payment-form" method="post" action="{% url 'mpesa_stk_push' order.pk %}">
+            {% csrf_token %}
+            <label>Phone (e.g. 07XXXXXXXX):</label>
+            <input name="phone" type="text" placeholder="07XXXXXXXX" required>
+            <button class="btn btn-primary" type="submit">Pay with M-Pesa</button>
+        </form>
+        {% endif %}
     </div>
     {% empty %}
     <p>You have not placed any orders yet.</p>

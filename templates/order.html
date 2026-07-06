@@ -4,10 +4,20 @@
 <div class="card auth-card">
     <h2>Order {{ item.name }}</h2>
     <p>{{ item.description }}</p>
-    <p class="price">Price: ${{ item.price }}</p>
+    <div class="order-summary">
+        <p class="price">Price: ${{ item.price }}</p>
+        <p class="meta-text">Choose how you'd like to pay: cash at pickup or M-Pesa online.</p>
+    </div>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-row">
+            {{ form.quantity.label_tag }}
+            {{ form.quantity }}
+        </div>
+        <fieldset class="form-row">
+            <legend>Payment Method</legend>
+            {{ form.payment_method }}
+        </fieldset>
         <button class="btn btn-primary" type="submit">Place Order</button>
     </form>
 </div>

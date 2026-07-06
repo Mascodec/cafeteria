@@ -10,4 +10,8 @@ urlpatterns = [
     path("menu/", views.menu_view, name="menu"),
     path("order/<int:pk>/", views.order_food, name="order_food"),
     path("orders/", views.orders_view, name="orders"),
+    path("mpesa/stk_push/<int:order_id>/", views.mpesa_stk_push, name="mpesa_stk_push"),
+    path("mpesa/callback/", views.mpesa_callback, name="mpesa_callback"),
+    path("admin-dashboard/", views.admin_dashboard, name="admin_dashboard"),
+    path("dashboard/", views.admin_dashboard, name="dashboard"),
 ]

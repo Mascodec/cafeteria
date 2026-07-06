@@ -1,0 +1,9 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+<div class="dashboard-link">
+    <p><a class="button" href="{% url 'admin:site-dashboard' %}">Open Site Dashboard</a></p>
+</div>
+
+{{ block.super }}
+{% endblock %}

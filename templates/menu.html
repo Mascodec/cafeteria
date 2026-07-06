@@ -8,6 +8,7 @@
         <h3>{{ item.name }}</h3>
         <p>{{ item.description }}</p>
         <p class="price">${{ item.price }}</p>
+        <p class="meta-text">Payment methods: Cash or M-Pesa</p>
         <a class="btn btn-primary" href="{% url 'order_food' item.pk %}">Order Now</a>
     </div>
     {% empty %}
