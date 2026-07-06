@@ -1,0 +1,137 @@
+:root {
+    --primary: #ff7a00;
+    --secondary: #1f2937;
+    --bg: #f8fafc;
+    --card: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff4e5, var(--bg));
+    color: var(--secondary);
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.navbar {
+    background: var(--secondary);
+    color: white;
+    padding: 1rem 0;
+}
+
+.nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 4rem 0;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text, .feature-box p, .card p {
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: var(--secondary);
+}
+
+.hero-card, .card, .feature-box {
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.auth-card {
+    max-width: 480px;
+    margin: 3rem auto;
+}
+
+.message {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.info {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+@media (max-width: 768px) {
+    .hero, .features, .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}

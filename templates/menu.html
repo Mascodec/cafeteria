@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Today's Menu</h2>
+<div class="menu-grid">
+    {% for item in items %}
+    <div class="card menu-card">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <p class="price">${{ item.price }}</p>
+        <a class="btn btn-primary" href="{% url 'order_food' item.pk %}">Order Now</a>
+    </div>
+    {% empty %}
+    <p>No meals available right now.</p>
+    {% endfor %}
+</div>
+{% endblock %}

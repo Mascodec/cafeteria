@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">Fast, smart, and stress-free</p>
+        <h1>Order your favorite cafeteria meals in seconds.</h1>
+        <p class="hero-text">Enjoy a beautiful menu, quick checkout, and live order updates from your favorite Smart Cafeteria.</p>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="{% url 'menu' %}">Browse Menu</a>
+            {% if not user.is_authenticated %}
+                <a class="btn btn-secondary" href="{% url 'register' %}">Create Account</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hero-card">
+        <h3>Why customers love us</h3>
+        <ul>
+            <li>Fresh meals every day</li>
+            <li>Quick online ordering</li>
+            <li>Status updates for every order</li>
+        </ul>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-box">
+        <h3>Register in Minutes</h3>
+        <p>Customers can sign up and log in safely to start ordering instantly.</p>
+    </div>
+    <div class="feature-box">
+        <h3>Beautiful Menu</h3>
+        <p>View available meals with attractive cards and details before ordering.</p>
+    </div>
+    <div class="feature-box">
+        <h3>Admin Order Tracking</h3>
+        <p>Administrators can update the order status from pending to ready to completed.</p>
+    </div>
+</section>
+{% endblock %}

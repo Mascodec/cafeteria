@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card auth-card">
+    <h2>Order {{ item.name }}</h2>
+    <p>{{ item.description }}</p>
+    <p class="price">Price: ${{ item.price }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Place Order</button>
+    </form>
+</div>
+{% endblock %}

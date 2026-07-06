@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Orders</h2>
+<div class="orders-list">
+    {% for order in orders %}
+    <div class="card order-card">
+        <h3>{{ order.item.name }}</h3>
+        <p>Quantity: {{ order.quantity }}</p>
+        <p>Status: <strong>{{ order.status }}</strong></p>
+        <p>Ordered on: {{ order.created_at }}</p>
+    </div>
+    {% empty %}
+    <p>You have not placed any orders yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
